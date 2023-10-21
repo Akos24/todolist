@@ -1,0 +1,25 @@
+
+<%- include("elements/header.ejs") %>
+
+<div class="big-container">
+    <div class="container">
+        <% if (locals.listItem && locals.text) { %>
+            <% for (var i = 0; i < text.length; i++) { %>
+                <div class="grid-item">
+                    <p><%=text[i]%></p>
+                    <form>
+                        <input id="check" type="checkbox" name="check">
+                    </form>
+                </div>
+            <% } %>
+        <% } %>
+        <div class="grid-item-unique">
+            <form  action="/new" method="POST">
+                <input type="text" class="new-item" name="text" placeholder="New Item">
+                <input type="submit" class="submit-button" value="+">
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("elements/footer.ejs") %>
